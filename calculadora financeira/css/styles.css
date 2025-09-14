@@ -1,0 +1,268 @@
+/* ========================================================= */
+/* --- SEÇÃO 1: Variáveis e Estilos Globais                --- */
+/* ========================================================= */
+
+/* Define variáveis de cores para um tema Neumorphic */
+:root {
+    --bg-color: #e0e0e0;
+    --shadow-light: #ffffff;
+    --shadow-dark: #bebebe;
+    --text-dark: #555;
+    --text-light: #888;
+    --primary-blue: #3264ff;
+    --primary-blue-dark: #1a4cd9;
+    --primary-blue-light: #4a7cff;
+    --icon-blue: #007bff;
+    --icon-green: #28a745;
+    --icon-purple: #6f42c1;
+    --icon-orange: #fd7e14;
+}
+
+/* Estilos aplicados a todo o corpo da página */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    margin: 0;
+    color: var(--text-dark);
+    padding: 20px;
+}
+
+/* Contêiner principal com o efeito Neumorphic externo */
+.main-menu-container,
+#calculators-container {
+    width: 90%;
+    max-width: 900px;
+    padding: 30px;
+    border-radius: 20px;
+    background: var(--bg-color);
+    box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light);
+    text-align: center;
+}
+
+.main-menu-container {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ========================================================= */
+/* --- SEÇÃO 2: Estilos do Menu Principal                  --- */
+/* ========================================================= */
+
+/* Estilos do cabeçalho do menu */
+.menu-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.menu-header h1 {
+    font-size: 1.5em;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.menu-header p {
+    color: var(--text-light);
+    margin: 5px 0 0;
+}
+
+/* Contêiner dos itens do menu */
+.menu-items-wide {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Estilo de cada item individual do menu */
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--text-dark);
+    background: var(--bg-color);
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light);
+    transition: all 0.2s ease-in-out;
+    font-weight: 600;
+}
+
+/* Efeito de 'pressão' ao passar o mouse sobre o item */
+.menu-item:hover {
+    box-shadow: 2px 2px 5px var(--shadow-dark), -2px -2px 5px var(--shadow-light);
+    transform: translateY(-2px);
+}
+
+/* Estilo do item de menu quando está ativo */
+.menu-item.active {
+    background-color: var(--primary-blue);
+    color: #fff;
+    box-shadow: inset 5px 5px 10px var(--primary-blue-dark), inset -5px -5px 10px var(--primary-blue-light);
+}
+
+/* Estilo dos ícones de navegação */
+.nav-icon {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+/* Cores específicas para cada ícone */
+.icon-blue { color: var(--icon-blue); }
+.icon-green { color: var(--icon-green); }
+.icon-purple { color: var(--icon-purple); }
+.icon-orange { color: var(--icon-orange); }
+
+/* Inverte a cor do ícone quando o item está ativo */
+.menu-item.active .nav-icon {
+    filter: invert(100%);
+}
+
+
+/* ========================================================= */
+/* --- SEÇÃO 3: Estilos das Calculadoras                   --- */
+/* ========================================================= */
+
+/* Layout de grid para organizar as colunas de entrada e resultado */
+.calculator-grid {
+    display: flex;
+    gap: 30px;
+}
+
+.input-column,
+.result-column {
+    flex: 1;
+}
+
+h2 {
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+/* Estilos para o campo de entrada (input) */
+input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: var(--bg-color);
+    box-sizing: border-box;
+    box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+    color: var(--text-dark);
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+}
+
+/* Estilo geral para todos os botões */
+.button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 25px;
+    background: var(--bg-color);
+    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-dark);
+    transition: all 0.2s ease-in-out;
+    border: none;
+}
+
+.button:active {
+    box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+}
+
+/* Estilo específico para o botão "Calcular", dando um toque de cor */
+.floating-button {
+    background: var(--bg-color);
+    color: var(--primary-blue);
+    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+}
+
+.floating-button:active {
+    box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+}
+
+/* Estilo para a área de resultado do cálculo */
+#resultado-juros {
+    padding: 15px;
+    border-radius: 10px;
+    background: var(--bg-color);
+    box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+    min-height: 200px;
+    text-align: left;
+}
+
+#resultado-juros p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+#resultado-juros strong {
+    color: var(--text-dark);
+}
+
+.placeholder-text {
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+/* Classes utilitárias */
+.hidden {
+    display: none !important;
+}
+
+/* Estilo para a mensagem de 'em desenvolvimento' */
+.development-message {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2em;
+    color: var(--text-light);
+}
+
+.development-message p {
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 10px;
+}
+
+
+/* ========================================================= */
+/* --- SEÇÃO 4: Responsividade (Mobile First)            --- */
+/* ========================================================= */
+
+/* Ajusta o layout para telas menores, como tablets e celulares */
+@media (max-width: 768px) {
+    .calculator-grid {
+        flex-direction: column; /* Altera o layout para uma única coluna */
+    }
+}
